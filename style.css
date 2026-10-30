@@ -1,0 +1,72 @@
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden;background:#0b0620;color:#fff;font-family:Poppins,system-ui,sans-serif;touch-action:none;user-select:none;-webkit-user-select:none}
+canvas#scene{position:fixed;inset:0;width:100vw;height:100vh;display:block}
+button{font-family:inherit;cursor:pointer;border:0;color:inherit}
+.hide{opacity:0;pointer-events:none}
+.hidden{display:none!important}
+
+/* header */
+#top{position:fixed;left:0;right:0;top:0;padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;z-index:5;background:linear-gradient(180deg,rgba(8,4,26,.9),rgba(8,4,26,.55) 70%,rgba(8,4,26,0))}
+.toprow{display:flex;align-items:center;gap:10px;height:52px}
+.brand{font-family:"Playfair Display",serif;font-weight:900;font-size:24px;white-space:nowrap;color:#ffe3a3;text-shadow:0 0 14px rgba(255,190,90,.55)}
+.chap{flex:1;text-align:right;font-weight:700;font-size:20px;color:#ffd1e3;white-space:nowrap}
+.round{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,214,140,.55);font-size:26px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 0 18px rgba(255,170,90,.25)}
+.round.off{opacity:.5;filter:grayscale(1)}
+.round.big{width:62px;height:62px;font-size:44px;line-height:1;padding-bottom:6px;background:rgba(255,214,120,.16)}
+.bar{display:flex;gap:6px;margin-top:6px}
+.bar i{flex:1;height:10px;border-radius:6px;background:rgba(255,255,255,.18);overflow:hidden;position:relative}
+.bar i b{position:absolute;inset:0;width:0;background:linear-gradient(90deg,#ffb347,#ff5e8a);box-shadow:0 0 10px #ff7aa8}
+
+/* footer */
+#bottom{position:fixed;left:0;right:0;bottom:0;padding:6px 14px calc(env(safe-area-inset-bottom) + 8px);z-index:5;text-align:center;background:linear-gradient(0deg,rgba(8,4,26,.85),rgba(8,4,26,0))}
+.ctrls{display:flex;align-items:center;justify-content:space-between;gap:10px;height:66px}
+.hint{flex:1;font-size:20px;font-weight:600;color:#ffe9c4;line-height:1.15}
+#bottom .pill{position:absolute;left:50%;top:6px;transform:translateX(-50%);white-space:nowrap}
+#bottom.cover .ctrls{visibility:hidden}
+#bottom:not(.cover) #openBtn{display:none}
+.made{font-size:20px;font-weight:600;color:#ffd98a;opacity:.95;margin-top:2px;height:28px;white-space:nowrap}
+.made b{color:#fff}
+
+.pill{min-height:62px;padding:12px 28px;border-radius:999px;font-size:22px;font-weight:800;letter-spacing:.2px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.pill.gold{background:linear-gradient(180deg,#fff0b8,#f7c948 50%,#d9951c);color:#3a1d00;border:3px solid #fff3c9;box-shadow:0 0 28px rgba(255,195,80,.6),0 10px 30px rgba(0,0,0,.35)}
+.pill.pink{background:linear-gradient(180deg,#ff8db5,#ff3d7f);color:#fff;border:3px solid #ffd0e1;box-shadow:0 0 28px rgba(255,80,140,.6)}
+.pill.soft{background:rgba(255,255,255,.14);border:2px solid rgba(255,220,160,.6);color:#fff;font-size:21px}
+
+/* overlays */
+.overlay{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+#splash{background:radial-gradient(ellipse at 50% 40%,rgba(60,20,90,.55),rgba(6,3,20,.96) 70%)}
+.sbook{font-size:96px;filter:drop-shadow(0 0 30px rgba(255,200,90,.9));margin-bottom:18px}
+.stext{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:38px;line-height:1.25;color:#fff3d6;text-shadow:0 0 22px rgba(255,170,90,.6);min-height:96px;max-width:560px}
+.sname{font-family:"Great Vibes",cursive;font-size:56px;color:#ffd36a;text-shadow:0 0 18px rgba(255,190,70,.8);min-height:76px;margin-top:6px}
+#startBtn{margin-top:22px}
+.smade{position:absolute;bottom:calc(env(safe-area-inset-bottom) + 14px)}
+
+#end{background:rgba(8,3,24,.55);justify-content:flex-start;padding-top:calc(env(safe-area-inset-top) + 9vh);padding-bottom:calc(env(safe-area-inset-bottom) + 10px)}
+.ecard{width:100%;max-width:520px;background:linear-gradient(180deg,rgba(60,18,70,.92),rgba(28,8,44,.94));border:3px solid #ffd36a;border-radius:30px;padding:30px 20px 26px;box-shadow:0 0 50px rgba(255,170,80,.45)}
+.eq{font-family:"Playfair Display",serif;font-weight:900;font-size:36px;line-height:1.22;color:#fff2d2}
+.gold-t{color:#ffd36a;text-shadow:0 0 14px rgba(255,200,80,.8)}
+.esub{font-size:22px;font-weight:600;color:#ffd0e2;margin-top:12px}
+.ebtns{display:flex;flex-direction:column;gap:16px;margin-top:26px}
+.ebtns .pill{font-size:26px;min-height:70px}
+.egrid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
+.egrid .pill{padding:10px 14px;min-height:58px}
+.emade{margin-top:auto;padding-top:10px}
+
+.modal{background:rgba(6,2,18,.8);z-index:20}
+.mcard{position:relative;width:100%;max-width:520px;background:linear-gradient(180deg,#3a1450,#1c0832);border:3px solid #ffd36a;border-radius:28px;padding:26px 20px 22px;text-align:left;max-height:calc(100% - 10px);overflow:auto}
+.mt{font-family:"Playfair Display",serif;font-weight:900;font-size:34px;color:#ffe9b8;margin:0 46px 14px 0;line-height:1.15}
+.close{position:absolute;right:14px;top:14px;width:48px;height:48px;font-size:22px}
+.mcard label{display:block;font-size:20px;font-weight:700;color:#ffd0e2;margin-bottom:14px}
+.mcard input{display:block;width:100%;margin-top:6px;font:600 22px Poppins,sans-serif;padding:14px 16px;border-radius:16px;border:2px solid rgba(255,214,140,.7);background:rgba(255,255,255,.1);color:#fff;outline:none;user-select:text;-webkit-user-select:text}
+.mcard input::placeholder{color:rgba(255,255,255,.45)}
+.mcard .pill{width:100%;margin-top:6px}
+#linkBox{margin-top:14px}
+#linkOut{font-size:20px!important}
+.mrow{display:flex;gap:10px;margin-top:8px}
+.mrow .pill{flex:1}
+
+.tap{position:fixed;z-index:30;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:5px solid rgba(255,255,255,.95);background:rgba(255,255,255,.28);box-shadow:0 0 24px rgba(255,255,255,.8);pointer-events:none}
+.toast{position:fixed;left:50%;bottom:22%;transform:translateX(-50%);z-index:40;background:rgba(20,8,36,.95);border:2px solid #ffd36a;color:#fff;font-size:20px;font-weight:700;padding:14px 22px;border-radius:18px;white-space:nowrap}
+
+@media (max-width:399px){.bt{display:none}.brand .bk{font-size:30px}}
+@media (max-height:700px){.ecard{padding:22px 16px 20px}.eq{font-size:34px}.ebtns{margin-top:20px}}
