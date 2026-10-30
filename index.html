@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Our Love Story 📖 · Made by @hack.n.code</title>
+<meta name="description" content="A magical 3D storybook of our love: 7 chapters, real page flips, and your name written in gold ink on the last page.">
+<meta property="og:title" content="Our Love Story 📖 — a story written only for you">
+<meta property="og:description" content="Open the book. Turn the pages. The last page has your name on it ❤️">
+<meta name="theme-color" content="#0b0620">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="scene" aria-label="Our Love Story book"></canvas>
+
+<header id="top" class="hide">
+  <div class="toprow">
+    <div class="brand"><span class="bt">Our Love Story</span> <span class="bk">📖</span></div>
+    <div class="chap" id="chapLabel">Cover</div>
+    <button id="musicBtn" class="round" aria-label="Music on/off">🎵</button>
+  </div>
+  <div class="bar" id="bar"></div>
+</header>
+
+<footer id="bottom" class="hide">
+  <div class="ctrls">
+    <button id="prevBtn" class="round big" aria-label="Previous page">‹</button>
+    <div id="hint" class="hint">Tap or swipe to turn the page</div>
+    <button id="nextBtn" class="round big" aria-label="Next page">›</button>
+  </div>
+  <button id="openBtn" class="pill gold">Open the book 📖</button>
+  <div class="made">Made by <b>@hack.n.code</b></div>
+</footer>
+
+<div id="splash" class="overlay">
+  <div class="sbook">📖</div>
+  <div class="stext" id="stext"></div>
+  <div class="sname" id="sname"></div>
+  <button id="startBtn" class="pill gold">Tap to begin ✨</button>
+  <div class="made smade">Made by <b>@hack.n.code</b></div>
+</div>
+
+<div id="end" class="overlay hidden">
+  <div class="ecard" id="ask">
+    <div class="eq">Will you write the next chapter with me? ✍️❤️</div>
+    <div class="ebtns">
+      <button class="pill pink" id="yes1">YES 💖</button>
+      <button class="pill gold" id="yes2">Obviously YES 😍</button>
+    </div>
+  </div>
+  <div class="ecard hidden" id="after">
+    <div class="eq">Chapter 8: <span class="gold-t">Forever</span> ❤️</div>
+    <div class="esub">I knew you'd say yes, <span id="nm2"></span> 🥹</div>
+    <div class="egrid">
+      <button class="pill soft" id="cardBtn">⬇️ Story card</button>
+      <button class="pill soft" id="shareBtn">💬 WhatsApp</button>
+      <button class="pill soft wide" id="createBtn">✍️ Create your own story</button>
+      <button class="pill soft wide" id="replayBtn">🔁 Replay the story</button>
+    </div>
+  </div>
+  <div class="made emade">Made by <b>@hack.n.code</b></div>
+</div>
+
+<div id="create" class="overlay modal hidden">
+  <div class="mcard">
+    <button class="round close" id="closeCreate" aria-label="Close">✕</button>
+    <div class="mt">Create your own story ✍️</div>
+    <div id="formPart">
+    <label>Their pet name<input id="fName" maxlength="22" placeholder="sweetheart" autocomplete="off"></label>
+    <label>Your line on the last page<input id="fLine" maxlength="90" placeholder="You are my favourite chapter." autocomplete="off"></label>
+    <button class="pill gold" id="makeLink">Make my story link 💌</button>
+    </div>
+    <div id="linkBox" class="hidden">
+      <input id="linkOut" readonly>
+      <div class="mrow">
+        <button class="pill soft" id="copyLink">📋 Copy</button>
+        <button class="pill soft" id="waLink">💬 WhatsApp</button>
+      </div>
+      <div class="mrow">
+        <button class="pill pink" id="openLink">👀 Preview</button>
+        <button class="pill soft" id="editLink">✏️ Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tap" class="tap hidden"></div>
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>
